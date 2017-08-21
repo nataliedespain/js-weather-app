@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:800,900');
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+$main: #212121;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+	vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: white;
+  font-family: "Muli";
+  color: $main;
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+input, button {
+  &:focus {
+    outline: none;
+  }
+}
+
+
+.pg1 {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+
+  .header {
+    width: 100%;
+    height: 80%;
+
+    h1 {
+      font-size: calc(4em + 4vw);
+      font-weight: 900;
+      margin-top: 8%;
+      visibility: hidden;
+    }
+  }
+
+  .search {
+    width: 100%;
+    height: 20%;
+    visibility: hidden;
+    display: flex;
+
+    .input {
+      height: 100%;
+      width: 80%;
+      position: relative;
+
+      input {
+        display: block;
+        margin: auto;
+        background: none;
+        border: none;
+        border-bottom: 10px $main solid;
+        width: 90%;
+        font-weight: 800;
+        font-size: calc(2em + 2vw);
+        padding: 1%;
+
+        // &::placeholder {
+        //   color: $main;
+        // }
+      }
+
+      label {
+        font-size: calc(2em + 2vw);
+        position: absolute;
+        top: 0;
+        margin-left: 5%;
+        transition: all 0.5s ease;
+      }
+
+      input:focus + label {
+        margin-top: -5%;
+        font-size: calc(.5em + 1.2vw);
+      }
+    }
+
+    .button {
+      height: 100%;
+      width: 20%;
+
+      button {
+        background: none;
+        border: none;
+        font-size: calc(2.5em + 2vw);
+
+        &:hover {
+          animation: wiggle 0.2s ease 2;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+
+
+.container2 {
+  width: 100%;
+  min-height: 100%;
+  background: transparent;
+  display: none;
+}
+
+.pg2 {
+  width: 93%;
+  margin: 0 auto;
+  min-height: 100%;
+
+  .top {
+    width: 100%;
+    min-height: 75px;
+    display: flex;
+    visibility: hidden;
+
+    .city {
+      width: 90%;
+
+      h1 {
+        font-size: calc(2.2em + 2.2vw);
+        text-transform: uppercase;
+        margin-top: 6%;
+        font-weight: 900;
+      }
+    }
+
+    .search2 {
+      width: 7%;
+      padding-top: 4.5%;
+
+      a {
+        font-size: calc(2.2em + 2.2vw);
+        margin: 6% 2% 0 auto;
+        text-decoration: none;
+        color: $main;
+      }
+
+      .fa {
+        margin-left: 20%;
+
+        &:hover {
+          animation: wiggle 0.2s ease 2;
+        }
+      }
+    }
+  }
+
+  .middle {
+    width: 70%;
+    margin: 4% auto;
+    display: flex;
+    flex-wrap: wrap;
+    visibility: hidden;
+    max-height: 200px;
+
+    .image {
+      width: 50%;
+      height: 100%;
+      padding: 4%;
+
+      img {
+        max-height: 250px;
+      }
+    }
+
+    .current {
+      width: 50%;
+      height: 100%;
+      text-align: center;
+      padding: 9% 4% 0 4%;
+
+      h2 {
+        font-size: calc(3.7em + 3.7vw);
+      }
+
+      h6 {
+        font-size: calc(0.8em + 0.8vw);
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .bottom {
+    width: 90%;
+    min-height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 18% auto;
+
+    .forecast {
+      width: calc(100% / 6);
+      min-height: 100%;
+      border-right: 10px $main solid;
+      display: flex;
+      flex-wrap: wrap;
+      overflow: auto;
+
+      &:last-child {
+        border: none;
+      }
+
+      h3 {
+        font-size: calc(.6em + .6vw);
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 900;
+      }
+
+      .forecast-img {
+        width: 100%;
+        margin: 7% 0;
+
+        img {
+          max-width: 25%;
+          display: block;
+          margin: auto;
+        }
+      }
+
+      .deg {
+        width: 100%;
+        text-align: center;
+
+        h4 {
+          font-size: calc(1.8em + 1.8vw);
+          font-weight: 900;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+// MEDIA QUERIES
+@media screen and (min-width: 1200px) {
+  .pg2 {
+    .top {
+      .city {
+        h1 {
+          margin-top: 3%;
+        }
+      }
+      .search2 {
+        padding-top: 2%;
+      }
+    }
+    .middle {
+      width: 50%;
+      margin: 1% auto;
+      .current {
+        padding-top: 5.5%;
+      }
+    }
+    .bottom {
+      margin: 16% auto;
+    }
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .pg1 {
+    .search {
+      .input {
+        padding-top: 3%;
+        input {
+          border-bottom: 7.5px $main solid;
+        }
+        label {
+          font-size: calc(1.8em + 1.5vw);
+          top: 12%;
+        }
+        input:focus + label {
+          margin-top: -7%;
+        }
+      }
+      .button {
+        padding-top: 3%;
+        button {
+          font-size: calc(2em + 2vw);
+        }
+      }
+    }
+  }
+
+  .pg2 {
+    .top {
+      .city {
+        width: 85%;
+        h1 {
+          font-size: calc(1.9em + 1.9vw);
+        }
+      }
+      .search2 {
+        width: 15%;
+        padding-top: 4.5%;
+        a {
+          font-size: calc(1.9em + 1.9vw);
+          margin: 5% auto 0 auto;
+        }
+      }
+    }
+    .middle {
+      margin: 7% auto;
+      max-height: none;
+      padding-top: 4%;
+      .image {
+        img {
+          max-width: 100%;
+        }
+      }
+      .current {
+        h2 {
+          font-size: calc(3.3em + 3.3vw);
+        }
+        h6 {
+          font-size: calc(0.7em + 0.7vw);
+        }
+      }
+    }
+    .bottom {
+      margin: 14% auto;
+      .forecast {
+        width: 100%;
+        border-right: none;
+        border-bottom: 7.5px $main solid;
+        .dayimg {
+          width: 75%;
+          .forecast-img {
+            order: -1;
+            margin: 2.5% 0;
+            padding-left: 20px;
+            img {
+              margin: 0;
+            }
+          }
+          h3 {
+            text-align: left;
+            padding: 10px 0 0 15px;
+          }
+        }
+        .deg {
+          width: 25%;
+          h4 {
+            padding-top: 35px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .pg1 {
+    .header {
+      h1 {
+        font-size: calc(3em + 3vw);
+      }
+    }
+    .search {
+      .input {
+        padding-top: 5%;
+        input {
+          border-bottom: 5px $main solid;
+        }
+        label {
+          font-size: calc(1.2em + 1.5vw);
+          top: 17%;
+        }
+        input:focus + label {
+          margin-top: -9%;
+        }
+      }
+      .button {
+        padding-top: 5%;
+        button {
+          font-size: calc(1.5em + 1.5vw);
+        }
+      }
+    }
+  }
+
+  .pg2 {
+    .top {
+      .city {
+        width: 80%;
+        h1 {
+          font-size: calc(1.6em + 1.6vw);
+        }
+      }
+      .search2 {
+        width: 20%;
+        padding-top: 4%;
+        a {
+          font-size: calc(1.6em + 1.6vw);
+          margin: 4% auto 0 auto;
+        }
+      }
+    }
+    .middle {
+      padding-top: 1%;
+      .image {
+        margin: auto;
+        width: 75%;
+        img {
+          width: 100%;
+        }
+      }
+      .current {
+        padding-top: 1%;
+        width: 100%;
+        h2 {
+          font-size: calc(3em + 3vw);
+        }
+        h6 {
+          font-size: calc(0.6em + 0.7vw);
+        }
+      }
+    }
+    .bottom {
+      margin: 35% auto;
+
+      .forecast {
+        width: 100%;
+        border-right: none;
+        border-bottom: 5px $main solid;
+        .dayimg {
+          width: 70%;
+          .forecast-img {
+            order: -1;
+            margin: 2.5% 0;
+            padding-left: 20px;
+            img {
+              margin: 0;
+            }
+          }
+          h3 {
+            text-align: left;
+            padding: 10px 0 0 15px;
+          }
+        }
+        .deg {
+          width: 30%;
+          h4 {
+            padding-top: 23px;
+          }
+        }
+      }
+    }
+  }
+
+}
